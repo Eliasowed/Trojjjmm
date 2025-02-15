@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Carregamento</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        img {
+            width: 80%;
+            max-width: 300px;
+            border-radius: 10px;
+        }
+        .loader {
+            width: 80%;
+            max-width: 300px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+            position: relative;
+        }
+        .loader::after {
+            content: '';
+            width: 0;
+            height: 100%;
+            background: #4CAF50;
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: load 3s ease-in-out forwards;
+        }
+        @keyframes load {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <img src="https://i.imgur.com/WYZ32Sv.png" alt="Imagem de Carregamento">
+    <div class="loader"></div>
+
+    <script>
+        setTimeout(() => {
+            alert('⚠️ ALERTA: POSSÍVEL MALWARE DETECTADO NO SEU DISPOSITIVO!');
+            document.body.innerHTML = '';
+            setTimeout(() => {
+                window.location.href = 'about:blank';
+            }, 1000);
+        }, 3100);
+    </script>
+</body>
+</html>
